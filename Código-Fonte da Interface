@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interface responsiva e acessível para cadastro e visualização de dados de um sistema de gestão.">
+  <title>Sistema de Gestão | Cadastro e Dados</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+  <header class="cabecalho">
+    <div class="container">
+      <div class="marca">
+        <span class="marca__sigla" aria-hidden="true">SG</span>
+        <div>
+          <p class="marca__titulo">Sistema de Gestão</p>
+          <p class="marca__descricao">Cadastro e visualização de dados</p>
+        </div>
+      </div>
+
+      <nav aria-label="Navegação principal">
+        <ul class="menu">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#cadastro">Cadastro</a></li>
+          <li><a href="#dados">Dados</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo-principal">
+    <section class="hero" id="inicio" aria-labelledby="titulo-principal">
+      <div class="container">
+        <p class="eyebrow">TRABALHO 01 • GESTÃO DA TECNOLOGIA DA INFORMAÇÃO</p>
+        <h1 id="titulo-principal">Interface para um Sistema de Gestão</h1>
+        <p class="hero__texto">
+          Aplicação web responsiva desenvolvida com estrutura semântica, foco em
+          acessibilidade e boas práticas de front-end.
+        </p>
+        <a class="botao botao--primario" href="#cadastro">Cadastrar novo registro</a>
+      </div>
+    </section>
+
+    <section class="secao" id="cadastro" aria-labelledby="titulo-cadastro">
+      <div class="container grid-layout">
+        <article class="cartao">
+          <header class="cartao__cabecalho">
+            <p class="eyebrow">FORMULÁRIO</p>
+            <h2 id="titulo-cadastro">Cadastro de registro</h2>
+            <p>Preencha os campos abaixo para incluir um novo item no sistema.</p>
+          </header>
+
+          <form id="formulario-cadastro">
+            <fieldset>
+              <legend>Informações do registro</legend>
+
+              <div class="campo">
+                <label for="nome">Nome completo <span aria-hidden="true">*</span></label>
+                <input type="text" id="nome" name="nome" autocomplete="name"
+                       required minlength="3" placeholder="Digite o nome completo">
+              </div>
+
+              <div class="campo">
+                <label for="email">E-mail <span aria-hidden="true">*</span></label>
+                <input type="email" id="email" name="email" autocomplete="email"
+                       required placeholder="nome@exemplo.com">
+              </div>
+
+              <div class="campo">
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" name="telefone" autocomplete="tel"
+                       inputmode="tel" placeholder="(11) 99999-9999">
+              </div>
+
+              <div class="campo">
+                <label for="categoria">Categoria <span aria-hidden="true">*</span></label>
+                <select id="categoria" name="categoria" required>
+                  <option value="">Selecione uma categoria</option>
+                  <option value="Administrativo">Administrativo</option>
+                  <option value="Comercial">Comercial</option>
+                  <option value="Financeiro">Financeiro</option>
+                  <option value="Tecnologia">Tecnologia</option>
+                </select>
+              </div>
+
+              <div class="campo">
+                <label for="status">Status <span aria-hidden="true">*</span></label>
+                <select id="status" name="status" required>
+                  <option value="">Selecione um status</option>
+                  <option value="Ativo">Ativo</option>
+                  <option value="Em análise">Em análise</option>
+                  <option value="Pendente">Pendente</option>
+                </select>
+              </div>
+
+              <div class="campo">
+                <label for="observacoes">Observações</label>
+                <textarea id="observacoes" name="observacoes" rows="4"
+                          placeholder="Informações complementares (opcional)"></textarea>
+              </div>
+            </fieldset>
+
+            <p class="campos-obrigatorios"><span aria-hidden="true">*</span> Campos obrigatórios.</p>
+
+            <div class="acoes-formulario">
+              <button class="botao botao--primario" type="submit">Salvar registro</button>
+              <button class="botao botao--secundario" type="reset">Limpar campos</button>
+            </div>
+
+            <p id="mensagem-formulario" class="mensagem" role="status" aria-live="polite"></p>
+          </form>
+        </article>
+
+        <aside class="painel-informativo" aria-labelledby="titulo-boas-praticas">
+          <h2 id="titulo-boas-praticas">Boas práticas aplicadas</h2>
+          <ul>
+            <li>Estrutura semântica com <code>header</code>, <code>nav</code>, <code>main</code>, <code>section</code>, <code>article</code>, <code>aside</code> e <code>footer</code>.</li>
+            <li>Formulário com <code>label</code>, <code>fieldset</code> e <code>legend</code>.</li>
+            <li>Navegação funcional por teclado e indicador visual de foco.</li>
+            <li>Layout responsivo para computadores, tablets e smartphones.</li>
+            <li>Campos HTML5 com tipos adequados, validação nativa e atributos de preenchimento automático.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="secao secao--clara" id="dados" aria-labelledby="titulo-dados">
+      <div class="container">
+        <header class="secao__cabecalho">
+          <p class="eyebrow">VISUALIZAÇÃO</p>
+          <h2 id="titulo-dados">Dados cadastrados</h2>
+          <p>Os registros demonstram como informações podem ser organizadas e visualizadas em uma interface de gestão.</p>
+        </header>
+
+        <div class="filtros" aria-label="Filtros de dados">
+          <div class="campo">
+            <label for="busca">Buscar por nome, e-mail ou categoria</label>
+            <input type="search" id="busca" placeholder="Digite para pesquisar">
+          </div>
+        </div>
+
+        <div class="tabela-responsiva">
+          <table>
+            <caption>Lista de registros cadastrados no sistema</caption>
+            <thead>
+              <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody id="corpo-tabela">
+              <tr>
+                <td>Ana Martins</td>
+                <td>ana.martins@exemplo.com</td>
+                <td>Tecnologia</td>
+                <td><span class="status status--ativo">Ativo</span></td>
+              </tr>
+              <tr>
+                <td>Bruno Costa</td>
+                <td>bruno.costa@exemplo.com</td>
+                <td>Financeiro</td>
+                <td><span class="status status--analise">Em análise</span></td>
+              </tr>
+              <tr>
+                <td>Carla Souza</td>
+                <td>carla.souza@exemplo.com</td>
+                <td>Administrativo</td>
+                <td><span class="status status--pendente">Pendente</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <p>Trabalho 1 — Desenvolvimento de Interface Web</p>
+      <p>HTML5, CSS3, responsividade, semântica e acessibilidade.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
